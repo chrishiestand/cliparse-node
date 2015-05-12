@@ -27,7 +27,7 @@ option.parse = function(opt, providedOptions) {
     .map(function(name) { return providedOptions[name]; })
     .find(function(v) { return typeof v !== 'undefined'; });
 
-  if(typeof value !== 'undefined' && value !== null) {
+if(typeof value !== 'undefined' && value !== null && typeof value !== 'boolean') {
     result = opt.parser(value);
   } else if(opt.default !== null || !opt.required) {
     result = parsers.success(opt.default);
